@@ -27,6 +27,14 @@ Requires:	%{name} = %{version}-%{release}
 Libraries, headers, and support files necessary to compile
 applications using agg
 
+%package static
+Summary:	Static agg library
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static agg library.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -58,11 +66,14 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/*.a
 %{_libdir}/*.so
-%{_pkgconfigdir}/libagg.pc
 %{_includedir}/agg2
+%{_pkgconfigdir}/libagg.pc
 %{_aclocaldir}/libagg.m4
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/*.a
 
 %clean
 rm -r $RPM_BUILD_ROOT
