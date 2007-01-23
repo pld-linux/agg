@@ -1,8 +1,8 @@
-Summary:	Anti-Grain Geometry
+Summary:	A High Quality Rendering Engine for C++
 Name:		agg
 Version:	2.5
 Release:	0.1
-License:	GPL
+License:	GPL v2+
 Group:		Libraries
 URL:		http://www.antigrain.com/
 Source0:	http://www.antigrain.com/%{name}-%{version}.tar.gz
@@ -16,7 +16,15 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A High Quality Rendering Engine for C++
+Anti-Grain Geometry (AGG) is a general purpose graphical toolkit
+written completely in standard and platform independent C++. It can be
+used in many areas of computer programming where high quality 2D
+graphics is an essential part of the project.
+
+AGG uses only C++ and standard C runtime functions, such as memcpy,
+sin, cos, sqrt, etc. The basic algorithms don't even use C++ Standard
+Template Library. Thus, AGG can be used in a very large number of
+applications, including embedded systems.
 
 %package devel
 Summary:	Support files necessary to compile applications with agg
@@ -59,6 +67,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %doc authors copying readme
@@ -74,6 +85,3 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/*.a
-
-%clean
-rm -r $RPM_BUILD_ROOT
