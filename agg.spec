@@ -1,5 +1,5 @@
 Summary:	A High Quality Rendering Engine for C++
-Summary(pl):	Silnik renderuj±cy wysokiej jako∂ci dla C++
+Summary(pl.UTF-8):   Silnik renderujƒÖcy wysokiej jako≈õci dla C++
 Name:		agg
 Version:	2.5
 Release:	0.1
@@ -28,40 +28,40 @@ sin, cos, sqrt, etc. The basic algorithms don't even use C++ Standard
 Template Library. Thus, AGG can be used in a very large number of
 applications, including embedded systems.
 
-%description -l pl
-Anti-Grain Geometry (AGG) to toolkit graficzny ogÛlnego przeznaczenia
-napisany ca≥kowicie w standardowym i niezaleønym od platformy C++.
-Moøe byÊ uøywany w wielu zastosowaniach z zakresu programowania gdzie
-zasadnicz± czÍ∂ci± projektu jest wysokiej jako∂ci grafika 2D.
+%description -l pl.UTF-8
+Anti-Grain Geometry (AGG) to toolkit graficzny og√≥lnego przeznaczenia
+napisany ca≈Çkowicie w standardowym i niezale≈ºnym od platformy C++.
+Mo≈ºe byƒá u≈ºywany w wielu zastosowaniach z zakresu programowania gdzie
+zasadniczƒÖ czƒô≈õciƒÖ projektu jest wysokiej jako≈õci grafika 2D.
 
-AGG uøywa tylko C++ i standardowych funkcji C, takich jak memcpy, sin,
-cos, sqrt itp. Podstawowe algorytmy nie uøywaj± nawet standardowej
-biblioteki C++. W ten sposÛb AGG moøe byÊ uøywany w bardzo wielu
-zastosowaniach, takøe na systemach wbudowanych.
+AGG u≈ºywa tylko C++ i standardowych funkcji C, takich jak memcpy, sin,
+cos, sqrt itp. Podstawowe algorytmy nie u≈ºywajƒÖ nawet standardowej
+biblioteki C++. W ten spos√≥b AGG mo≈ºe byƒá u≈ºywany w bardzo wielu
+zastosowaniach, tak≈ºe na systemach wbudowanych.
 
 %package devel
 Summary:	Support files necessary to compile applications with agg
-Summary(pl):	Pliki potrzebne do kompilowania aplikacji z uøyciem agg
+Summary(pl.UTF-8):   Pliki potrzebne do kompilowania aplikacji z u≈ºyciem agg
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header and support files necessary to compile applications using agg.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i pomocnicze potrzebne do kompilowania aplikacji z
-uøyciem agg.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i pomocnicze potrzebne do kompilowania aplikacji z
+u≈ºyciem agg.
 
 %package static
 Summary:	Static agg library
-Summary(pl):	Statyczna biblioteka agg
+Summary(pl.UTF-8):   Statyczna biblioteka agg
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static agg library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka agg.
 
 %prep
