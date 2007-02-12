@@ -1,5 +1,5 @@
 Summary:	A High Quality Rendering Engine for C++
-Summary(pl.UTF-8):   Silnik renderujący wysokiej jakości dla C++
+Summary(pl.UTF-8):	Silnik renderujący wysokiej jakości dla C++
 Name:		agg
 Version:	2.5
 Release:	0.1
@@ -41,7 +41,7 @@ zastosowaniach, także na systemach wbudowanych.
 
 %package devel
 Summary:	Support files necessary to compile applications with agg
-Summary(pl.UTF-8):   Pliki potrzebne do kompilowania aplikacji z użyciem agg
+Summary(pl.UTF-8):	Pliki potrzebne do kompilowania aplikacji z użyciem agg
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -54,7 +54,7 @@ użyciem agg.
 
 %package static
 Summary:	Static agg library
-Summary(pl.UTF-8):   Statyczna biblioteka agg
+Summary(pl.UTF-8):	Statyczna biblioteka agg
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
