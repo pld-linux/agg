@@ -10,11 +10,11 @@ Source0:	http://www.antigrain.com/%{name}-%{version}.tar.gz
 Patch0:		%{name}-depends.patch
 URL:		http://www.antigrain.com/
 BuildRequires:	SDL-devel
-BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype-devel
 BuildRequires:	libtool
+BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
