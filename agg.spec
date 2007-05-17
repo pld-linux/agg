@@ -13,7 +13,9 @@ BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	freetype-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +46,10 @@ Summary:	Support files necessary to compile applications with agg
 Summary(pl.UTF-8):	Pliki potrzebne do kompilowania aplikacji z użyciem agg
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
+# libaggfontfreetype R: freetype-devel
+# libaggplatformsdl R: SDL-devel
+# libaggplatformX11 R: xorg-lib-libX11-devel
 
 %description devel
 Header and support files necessary to compile applications using agg.
@@ -69,10 +75,10 @@ Statyczna biblioteka agg.
 %patch0 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
-%{__libtoolize}
 %{__automake}
 %configure \
 	--disable-gpc
@@ -93,16 +99,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc authors copying readme
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libagg*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/libagg*.so
+%{_libdir}/libagg*.la
 %{_includedir}/agg2
 %{_pkgconfigdir}/libagg.pc
 %{_aclocaldir}/libagg.m4
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libagg*.a
