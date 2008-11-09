@@ -2,7 +2,7 @@ Summary:	A High Quality Rendering Engine for C++
 Summary(pl.UTF-8):	Silnik renderujący wysokiej jakości dla C++
 Name:		agg
 Version:	2.5
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.antigrain.com/%{name}-%{version}.tar.gz
