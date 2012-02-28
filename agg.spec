@@ -2,7 +2,7 @@ Summary:	A High Quality Rendering Engine for C++
 Summary(pl.UTF-8):	Silnik renderujący wysokiej jakości dla C++
 Name:		agg
 Version:	2.5
-Release:	5
+Release:	6
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.antigrain.com/%{name}-%{version}.tar.gz
@@ -18,6 +18,9 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# Unresolved symbol: _Z8agg_mainiPPc
+%define		skip_post_check_so	libaggplatformsdl.so.*.*.* libaggplatformX11.so.*.*.* libaggplatformsdl.so.*.*.*
 
 %description
 Anti-Grain Geometry (AGG) is a general purpose graphical toolkit
@@ -48,8 +51,8 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
 # libaggfontfreetype R: freetype-devel
-# libaggplatformsdl R: SDL-devel
 # libaggplatformX11 R: xorg-lib-libX11-devel
+# libaggplatformsdl R: SDL-devel
 
 %description devel
 Header and support files necessary to compile applications using agg.
@@ -100,16 +103,32 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc authors copying readme
-%attr(755,root,root) %{_libdir}/libagg*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libagg.so.*.*.*
+%ghost %{_libdir}/libagg.so.2
+%attr(755,root,root) %{_libdir}/libaggfontfreetype.so.*.*.*
+%ghost %{_libdir}/libaggfontfreetype.so.2
+%attr(755,root,root) %{_libdir}/libaggplatformX11.so.*.*.*
+%ghost %{_libdir}/libaggplatformX11.so.2
+%attr(755,root,root) %{_libdir}/libaggplatformsdl.so.*.*.*
+%ghost %{_libdir}/libaggplatformsdl.so.2
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libagg*.so
-%{_libdir}/libagg*.la
+%{_libdir}/libagg.so
+%{_libdir}/libaggfontfreetype.so
+%{_libdir}/libaggplatformX11.so
+%{_libdir}/libaggplatformsdl.so
+%{_libdir}/libagg.la
+%{_libdir}/libaggfontfreetype.la
+%{_libdir}/libaggplatformX11.la
+%{_libdir}/libaggplatformsdl.la
 %{_includedir}/agg2
 %{_pkgconfigdir}/libagg.pc
 %{_aclocaldir}/libagg.m4
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libagg*.a
+%{_libdir}/libagg.a
+%{_libdir}/libaggfontfreetype.a
+%{_libdir}/libaggplatformX11.a
+%{_libdir}/libaggplatformsdl.a
