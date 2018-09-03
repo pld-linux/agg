@@ -1,0 +1,39 @@
+diff -ur agg-2.5/include/agg_renderer_outline_aa.h agg-2.5.c++/include/agg_renderer_outline_aa.h
+--- agg-2.5/include/agg_renderer_outline_aa.h	2006-10-09 06:07:08.000000000 +0200
++++ agg-2.5.c++/include/agg_renderer_outline_aa.h	2018-09-03 11:45:56.795337176 +0200
+@@ -1375,7 +1375,7 @@
+         //---------------------------------------------------------------------
+         void profile(const line_profile_aa& prof) { m_profile = &prof; }
+         const line_profile_aa& profile() const { return *m_profile; }
+-        line_profile_aa& profile() { return *m_profile; }
++        const line_profile_aa& profile() { return *m_profile; }
+ 
+         //---------------------------------------------------------------------
+         int subpixel_width() const { return m_profile->subpixel_width(); }
+diff -ur agg-2.5/include/agg_scanline_u.h agg-2.5.c++/include/agg_scanline_u.h
+--- agg-2.5/include/agg_scanline_u.h	2006-10-09 06:07:10.000000000 +0200
++++ agg-2.5.c++/include/agg_scanline_u.h	2018-09-03 11:48:04.543654164 +0200
+@@ -476,18 +476,19 @@
+         scanline32_u8_am() : base_type(), m_alpha_mask(0) {}
+         scanline32_u8_am(const AlphaMask& am) : base_type(), m_alpha_mask(&am) {}
+ 
++	base_type b;
+         //--------------------------------------------------------------------
+         void finalize(int span_y)
+         {
+-            base_type::finalize(span_y);
++            b.finalize(span_y);
+             if(m_alpha_mask)
+             {
+-                typename base_type::iterator span = base_type::begin();
+-                unsigned count = base_type::num_spans();
++                typename base_type::iterator span = b.begin();
++                unsigned count = b.num_spans();
+                 do
+                 {
+                     m_alpha_mask->combine_hspan(span->x, 
+-                                                base_type::y(), 
++                                                b.y(), 
+                                                 span->covers, 
+                                                 span->len);
+                     ++span;
