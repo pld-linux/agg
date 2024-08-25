@@ -10,11 +10,12 @@ Source0:	http://www.antigrain.com/%{name}-%{version}.tar.gz
 Patch0:		%{name}-depends.patch
 Patch1:		ac.patch
 Patch2:		cxx.patch
+Patch3:		%{name}-types.patch
 URL:		http://www.antigrain.com/
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	freetype-devel
+BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -80,6 +81,7 @@ Statyczna biblioteka agg.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
