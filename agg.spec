@@ -11,7 +11,7 @@ Patch0:		%{name}-depends.patch
 Patch1:		ac.patch
 Patch2:		cxx.patch
 Patch3:		%{name}-types.patch
-URL:		http://www.antigrain.com/
+URL:		https://agg.sourceforge.net/antigrain.com/
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
